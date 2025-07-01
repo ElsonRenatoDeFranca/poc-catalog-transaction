@@ -1,0 +1,28 @@
+server:
+  port: 9091
+spring:
+  datasource:
+    hikari:
+      connection-test-query: SELECT 1
+      minimum-idle: 1
+      maximum-pool-size: 10
+      pool-name: platforma-database-pool
+      auto-commit: false
+      connection-timeout: 30000
+    url: "jdbc:postgresql://0.0.0.0:5432/tech-talk-db"
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        ddl-auto: create
+        format_sql: true
+    show-sql: true
+    generate-ddl: true
