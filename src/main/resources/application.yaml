@@ -1,0 +1,27 @@
+server:
+  port: 9091
+
+spring:
+  # --- Default configuration for LOCAL development ---
+  datasource:
+    # When running locally from your IDE, connect to 'localhost'
+    url: "jdbc:postgresql://localhost:5432/tech-talk-db"
+    username: user
+    password: password
+    hikari:
+      pool-name: platforma-database-pool
+      connection-timeout: 30000 # 30 seconds
+      maximum-pool-size: 10
+      minimum-idle: 1
+      connection-test-query: SELECT 1
+      auto-commit: false
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        # 'update' is safer for development as it preserves data.
+        ddl-auto: create
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true

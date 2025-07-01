@@ -1,0 +1,5 @@
+spring:
+  # --- Configuration overrides for the DOCKER environment ---
+  datasource:
+    # When running inside a Docker container, connect to the service name 'database'
+    url: "jdbc:postgresql://crm-db:5432/tech-talk-db"
